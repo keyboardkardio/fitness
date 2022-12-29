@@ -28,6 +28,39 @@ create table muscle_group_exercises (
     primary key (muscle_group_id, exercise_id)
 );
 
+/* ---- For use with the PlanetScale platform ----
+create table splits (
+    id int not null primary key,
+    name varchar(6) not null unique
+);
+
+create table movement_types (
+    id int not null primary key,
+    name varchar(12) not null unique
+);
+
+create table muscle_groups (
+    id int not null primary key,
+    split_id int not null,
+    name varchar(50) not null unique,
+    key split_id_idx (split_id)
+);
+
+create table exercises (
+    id serial not null primary key,
+    movement_type_id int not null,
+    name varchar(50) not null unique,
+    key movement_type_id_idx (movement_type_id)
+);
+
+create table muscle_group_exercises (
+    muscle_group_id int not null,
+    exercise_id int not null,
+    key muscle_group_id_idx (muscle_group_id),
+    key exercise_id_idx (exercise_id)
+);
+----------------------------------------------- */
+
 insert into splits (id, name)
     values (1, 'core'),
            (2, 'lower'),
