@@ -54,6 +54,7 @@ create table exercises (
 );
 
 create table muscle_group_exercises (
+    id serial not null primary key,
     muscle_group_id int not null,
     exercise_id int not null,
     key muscle_group_id_idx (muscle_group_id),
